@@ -1,0 +1,14 @@
+#!/usr/bin/env just --justfile
+set dotenv-load := true
+
+# Create a build script to compile the protobufs into a go library
+# Create a build script to compile the protobufs into a rust library, so we can deserialize it in the processor downstream
+
+build_go:
+    protoc --proto_path=./src \
+      --go_out=./generated/go \
+      --go_opt=paths=source_relative \
+      --go-grpc_out=./generated/go \
+      --go-grpc_opt=paths=source_relative \
+      \
+      ./src/*.proto

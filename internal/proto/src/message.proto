@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+option go_package = "internal/proto";
+
+message RawChatMessage {
+  string trace_id = 1; // Anonymous unique ID generated at intake
+  string message = 2;
+  string timestamp = 3;
+}
+
+message SynthesizedMessage {
+
+}
